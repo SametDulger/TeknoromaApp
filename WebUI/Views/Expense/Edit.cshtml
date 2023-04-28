@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete;
+@model Expense
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+           
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <select class="form-control" asp-for="Payments">
+                        <option value="" disabled selected>Gider türünü seçin.</option>
+                        <option value="0">Fatura</option>
+                        <option value="1">Teknik Alt Yapı</option>
+                        <option value="2">Diğer Giderler</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tutar</label>
+                    <input asp-for="Amount" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Ödeme Açıklaması</label>
+                    <input asp-for="Explanation" required type="text" class="form-control" />
+                </div>               
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+

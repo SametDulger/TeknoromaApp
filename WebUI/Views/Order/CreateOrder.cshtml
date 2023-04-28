@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete;
+@model Order
+@{
+    ViewData["Title"] = "CreateOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Müşteriler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>TCKN</th>
+                        <th>İsim</th>
+                        <th>Mail</th>
+                        <th>Adres</th>
+                        <th>Telefon Numarası</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    @foreach (Customer customer in ViewBag.Customer)
+                    {
+                        <tr>
+                            <td>@customer.TC</td>
+                            <td>@customer.CustomerName</td>
+                            <td>@customer.EmailAddress</td>
+                            <td>@customer.Address</td>
+                            <td>@customer.Phone</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            
+
+            <form method="get">
+                <div class="form-group">
+                    <label>Müşteri TC Kimlik No:</label>
+                    <input asp-for="Customer.TC" required type="number" class="form-control" />
+                </div>
+               
+                <button class="btn btn-primary" asp-action="Create" asp-controller="Order">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

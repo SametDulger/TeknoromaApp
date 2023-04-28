@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete;
+@model List<Category>
+@{
+    ViewData["Title"] = "CategoryReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var subCategory = ViewBag.SubCategory;
+}
+<div class="container-fluid">
+
+    <label><b>Kategori Listesi</b></label>
+    <div class="row">
+        @foreach (Category category in Model)
+        {
+            <div class="m-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@category.CategoryName</h5>
+                        <p class="card-text">@category.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <hr />
+    <label><b>Alt Kategori Listesi</b></label>
+    <div class="row">
+        @foreach (SubCategory item in subCategory)
+        {
+            <div class="m-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.SubCategoryName</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Kategori : @item.Category.CategoryName</h6>
+                        <p class="card-text">@item.Description</p>
+                        @Html.ActionLink("Ürünleri Gör", "ProductList", "Report", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

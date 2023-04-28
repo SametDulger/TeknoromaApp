@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete;
+@model Customer
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>TC Kimlik No</label>
+                    <input asp-for="TC" required type="number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Müşteri Adı</label>
+                    <input asp-for="CustomerName" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Email Adresi</label>
+                    <input asp-for="EmailAddress" required type="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Adres</label>
+                    <input asp-for="Address" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası</label>
+                    <input asp-for="Phone" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Doğum Tarihi</label>
+                    <input asp-for="BirthDate" required type="date" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+

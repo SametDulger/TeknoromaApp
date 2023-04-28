@@ -1,0 +1,125 @@
+﻿
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <span>Personel İşlemleri</span>
+    </a>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="Index" asp-controller="User">Personelleri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="User">Personel Ekle</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <span>Müşteri İşlemleri</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="Index" asp-controller="Customer">Müşterileri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="Customer">Müşteri Ekle</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <span>Ürün İşlemleri</span>
+    </a>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="Index" asp-controller="Product">Ürünleri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="Product">Ürün Ekle</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <span>Kategori İşlemleri</span>
+    </a>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <h6 class="collapse-header">Kategori İşlemleri:</h6>
+            <a class="collapse-item" asp-action="Index" asp-controller="Category">Kategorileri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="Category">Kategori Ekle</a>
+            <h6 class="collapse-header">Alt Kategori İşlemleri:</h6>
+            <a class="collapse-item" asp-action="Index" asp-controller="SubCategory">Alt Kategorileri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="SubCategory">Alt Kategori Ekle</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <span>Sipariş İşlemleri</span>
+    </a>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="Index" asp-controller="Order">Siparişleri Görüntüle</a>
+            <a class="collapse-item" asp-action="CreateOrder" asp-controller="Order">Sipariş Oluştur</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        <span>Tedarikçi İşlemleri</span>
+    </a>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="Index" asp-controller="Supplier">Tedarikçileri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="Supplier">Tedarikçi Ekle</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        <span>Rapor İşlemleri</span>
+    </a>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="SupplierReport" asp-controller="Report">Tedarikçi Raporu Görüntüle</a>
+            <a class="collapse-item" asp-action="ProductReport" asp-controller="Report">Ürün Raporu Görüntüle </a>
+            <a class="collapse-item" asp-action="CategoryReport" asp-controller="Report">Kategori Raporu Görüntüle</a>
+            <a class="collapse-item" asp-action="ExpenseReport" asp-controller="Report">Gider Raporu Görüntüle</a>
+            <a class="collapse-item" asp-action="SalesTrackingReport" asp-controller="Report">Satış Takip Raporu Görüntüle</a>
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+        <span>Sorun Bildir</span>
+    </a>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" asp-action="Create" asp-controller="Issue">Kayıt Oluştur</a>
+            <a class="collapse-item" asp-action="Index" asp-controller="Issue">Kayıtları Görüntüle</a>
+        </div>
+    </div>
+</li>
+

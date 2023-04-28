@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete;
+@model Issue
+@{
+    ViewData["Title"] = "ClosedDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card w-75">
+    <div class="card-body">
+        <h4>Oluşturan Kullanıcı</h4>
+        @foreach (AppUser item in ViewBag.AppUser)
+        {
+            if (item.Id == Model.AppUserId)
+            {
+                <h6>@item.UserName</h6>
+            }
+        }
+        <h4>Konu</h4>
+        <h6 class="card-title">@Model.Subject</h6>
+        <h4>Sorun</h4>
+        <p class="card-text">@Model.Problem</p>
+        <h4>Cevap</h4>
+        <p>@Model.Answer</p>
+        @Html.ActionLink("Geri Dön", "Index", "Home", new { @class = "btn btn-primary" })
+    </div>
+</div>
+

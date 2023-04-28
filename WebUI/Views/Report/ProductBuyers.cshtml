@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete;
+@model List<Customer>
+
+@{
+    ViewData["Title"] = "ProductBuyers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Error"] == null)
+{
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Satışı Durdurulan Ürünler / Listesi</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Müşteri Adı</th>
+                                <th>Müşteri Soyadı</th>
+                                <th>Yaşı</th>
+                                <th>Cinsiyeti</th>
+                            </tr>
+                        </thead>
+                      
+                        <tbody>
+                            @foreach (Customer c in Model)
+                            {
+                                <tr>
+                                    <td>@c.CustomerName</td>
+                                    <td>@c.TC</td>
+                                    <td>@c.BirthDate</td>
+                                    <td>@c.Gender.ToString()</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+else
+{
+    <div class="alert-danger">
+        <span>@TempData["Error"].ToString()</span>
+    </div>
+}
+
+

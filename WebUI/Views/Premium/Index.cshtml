@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete;
+@model AppUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+<label><b>Prim Durumu</b></label>
+<table class="table table-bordered table-primary">
+    <thead>
+        <tr>
+            <th scope="col">İsim</th>
+            <th scope="col">Soyisim</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">Email</th>
+            <th scope="col">İşe Giriş Tarihi</th>
+            <th scope="col">Toplam Satış</th>
+            <th scope="col">Prim Tutarı</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@Model.FirstName</th>
+            <td>@Model.LastName</td>
+            <td>@Model.UserName</td>
+            <td>@Model.Email</td>
+            <td>@Model.CreatedDate</td>
+            <td>@Model.MonthlySales</td>
+            <td>@Model.Bonus</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>

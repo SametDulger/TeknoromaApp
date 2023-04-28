@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "SelectMonth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form asp-action="Sales" method="get" >
+               
+                <div class="form-group">
+                    <label>Filtrelenecek Tarih</label>
+                    <input name="time" required type="month" class="form-control"/> 
+                </div>
+                <button type="submit" class="btn btn-primary">Siparişleri Getir</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,46 @@
+﻿
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+        <span>Gelir İşlemleri</span>
+    </a>
+    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="SelectMonth" asp-controller="Expense">Gelirleri Görüntüle</a>
+
+
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+        <span>Gider İşlemleri</span>
+    </a>
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+
+            <a class="collapse-item" asp-action="Index" asp-controller="Expense">Giderleri Görüntüle</a>
+            <a class="collapse-item" asp-action="Create" asp-controller="Expense">Ödeme Oluştur</a>
+            <a class="collapse-item" asp-action="CreateEmployeePayment" asp-controller="Expense">Personel Ödemesi Oluştur</a>
+
+        </div>
+    </div>
+</li>
+
+<hr class="sidebar-divider my-0">
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+        <span>Sorun Bildir</span>
+    </a>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionSidebar" style="">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" asp-action="Create" asp-controller="Issue">Kayıt Oluştur</a>
+            <a class="collapse-item" asp-action="Index" asp-controller="Issue">Kayıtları Görüntüle</a>
+        </div>
+    </div>
+</li>

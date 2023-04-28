@@ -1,0 +1,68 @@
+﻿@using EntityLayer.Concrete;
+@model SupplierExpense
+@{
+    ViewData["Title"] = "AddStock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Supplier supplier = ViewBag.Supplier;
+    Product product = ViewBag.Product;
+}
+<label><b>Tedarikçi Bilgileri</b></label>
+<table class="table table-bordered table-success">
+    <thead>
+        <tr>
+            <th scope="col">Şirker Adı</th>
+            <th scope="col">Yetkili</th>
+            <th scope="col">Mail Adresi</th>
+            <th scope="col">Telefon Numarası</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@supplier.CompanyName</th>
+            <td>@supplier.ContactName</td>
+            <td>@supplier.Email</td>
+            <td>@supplier.PhoneNumber</td>
+        </tr>
+    </tbody>
+</table>
+<hr />
+<table class="table table-bordered table-success">
+    <thead>
+        <tr>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Stok Miktarı</th>
+            <th scope="col">Fiyat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@product.ProductName</th>
+            <td>@product.UnıtsInStock</td>
+            <td>@product.UnitPrice</td>
+        </tr>
+    </tbody>
+</table>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+           
+            <form method="post">
+                <div class="form-group">
+                    <label>Ürün Adı</label>
+                    <input class="form-control" required type="text" asp-for="ProductId" value="@product.Id" />
+                </div>
+                <div class="form-group">
+                    <label>Eklenecek Adet</label>
+                    <input asp-for="Quantity" required type="number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Birim Fiyatı</label>
+                    <input asp-for="Price" required type="text" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

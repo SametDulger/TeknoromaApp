@@ -1,0 +1,80 @@
+﻿    @using DataAccessLayer.DTO;
+
+@{
+    ViewData["Title"] = "SupplierReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var allTime = ViewBag.AllTime;
+    var mountly = ViewBag.Mountly;
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tedarikçi Raporu / Tüm Zaman</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tedarikçi </th>
+                            <th>Ürün </th>
+                            <th>Genel Toplam</th>
+
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                       @foreach (SupplierExpenseReportDTO vm in allTime)
+                        {
+                            <tr>
+                                <td>@vm.SupplierName</td>
+                                <td>@vm.ProductName</td>
+                                <td>@vm.Total</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tedarikçi Raporu / Aylık</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tedarikçi </th>
+                            <th>Ürün </th>
+                            <th>Genel Toplam</th>
+
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        @foreach (SupplierExpenseReportDTO vm in mountly)
+                        {
+                            <tr>
+                                <td>@vm.SupplierName</td>
+                                <td>@vm.ProductName</td>
+                                <td>@vm.Total</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

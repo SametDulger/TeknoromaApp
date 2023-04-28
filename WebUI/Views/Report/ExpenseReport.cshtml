@@ -1,0 +1,126 @@
+﻿@using EntityLayer.Concrete;
+
+@{
+    ViewData["Title"] = "ExpenseReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var expense = ViewBag.Expense;
+    var employeePayment = ViewBag.EmployeePayment;
+    var appUser = ViewBag.AppUser;
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Genel Giderler</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Ödeme Tarihi</th>
+                            <th>Gider Türü</th>
+                            <th>Tutar</th>
+                            <th>Açıklama</th>
+                            <th>Ödemeyi Yapan</th>
+                            <th>Kur Bilgisi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        @foreach (Expense expenses in expense)
+                        {
+                            <tr>
+                                <td>@expenses.PaymentDate</td>
+                                <td>@expenses.Payments</td>
+                                <td>@expenses.Amount</td>
+                                <td>@expenses.Explanation</td>
+
+                                @if (expenses.UpdatedBy == null)
+                                {
+                                    <td>@expenses.CreatedBy</td>
+
+                                }
+                                else
+                                {
+                                    <td>@expenses.UpdatedBy</td>
+
+                                }
+                                <td>@expenses.Dolar/@expenses.Euro</td>
+                                <td>
+                                    @Html.ActionLink("Güncelle", "Edit", "Expense", new { id = expenses.Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Sil", "Delete", "Expense", new { id = expenses.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+<hr />
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Çalışan Ödemeleri</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Ödeme Tarihi</th>
+                            <th>Ödeme Yapılan</th>
+                            <th>Tutar</th>
+                            <th>Açıklama</th>
+                            <th>Ödemeyi Yapan</th>
+                            <th>Kur Bilgisi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        @foreach (EmployeePayment employee in employeePayment)
+                        {
+                            <tr>
+                                <td>@employee.PaymentDate</td>
+                                @foreach (AppUser user in appUser)
+                                {
+                                    if (user.Id == employee.AppUserId)
+                                    {
+                                        <td>@user.UserName</td>
+                                    }
+                                }
+                                <td>@employee.Amount</td>
+                                <td>@employee.Explanation</td>
+                                @if (employee.UpdatedBy == null)
+                                {
+                                    <td>@employee.CreatedBy</td>
+
+                                }
+                                else
+                                {
+                                    <td>@employee.UpdatedBy</td>
+
+                                }
+                                <td>@employee.Dolar/@employee.Euro</td>
+                                <td>
+                                    @Html.ActionLink("Güncelle", "EditEmployeePayment", "Expense", new { id = employee.Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Sil", "DeleteEmployeePayment", "Expense", new { id = employee.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

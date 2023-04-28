@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete;
+@model List<Supplier>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tedarikçi Listesi / İşlemleri</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Şirket Adı</th>
+                            <th>İletişim Adı</th>
+                            <th>Mail Adresi</th>
+                            <th>Adres</th>
+                            <th>Telefon Numarası</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        @foreach (var supplier in Model)
+                        {
+                        <tr>
+                            <td>@supplier.CompanyName</td>
+                            <td>@supplier.ContactName</td>
+                            <td>@supplier.Email</td>
+                            <td>@supplier.Address</td>
+                            <td>@supplier.PhoneNumber</td>
+                            <td class="text-right">
+                                @Html.ActionLink("Güncelle", "Edit", "Supplier", new { id = supplier.Id }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("Sil", "Delete", "Supplier", new { id = supplier.Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

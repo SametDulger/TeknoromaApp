@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete;
+@model Supplier 
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div asp-validation-summary="All" class="text-danger">
+            </div>
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Şirket Adı</label>
+                    <input asp-for="CompanyName" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>İletişim Adı</label>
+                    <input asp-for="ContactName" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Email Adresi</label>
+                    <input asp-for="Email" required type="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Adres</label>
+                    <input asp-for="Address" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası</label>
+                    <input asp-for="PhoneNumber" required type="text" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+

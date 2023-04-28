@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete;
+@model EmployeePayment
+@{
+    ViewData["Title"] = "EditEmployeePayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+           
+            <form asp-action="EditEmployeePayment" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <select class="form-control" name="AppUserId">
+                        <option value="" disabled selected>Personel seçin.</option>
+
+                        @foreach (AppUser user in ViewBag.AppUser)
+                        {
+                            <option value="@user.Id">@user.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tutar</label>
+                    <input asp-for="Amount" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Ödeme Açıklaması</label>
+                    <input asp-for="Explanation" required type="text" class="form-control" />
+                </div>                
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+

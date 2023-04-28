@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete;
+@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Personel Listesi</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Adı</th>
+                            <th>Soyadı</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Email</th>
+                            <th>Telefon Numarası</th>
+                            <th>Adres</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>@user.UserName</td>
+                                <td>@user.Email</td>
+                                <td>@user.PhoneNumber</td>
+                                <td>@user.Address</td>
+                                <td class="text-right">
+                                    @Html.ActionLink("Güncelle", "Edit", "User", new { id = user.Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Sil", "Delete", "User", new { id = user.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

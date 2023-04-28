@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete;
+@model List<Customer>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Müşteri Listesi / İşlemleri</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>TC Kimlik No</th>
+                            <th>Müşteri Adı</th>
+                            <th>Mail Adresi</th>
+                            <th>Adres</th>
+                            <th>Telefon Numarası</th>
+                            <th>Doğum Tarihi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        @foreach (var customer in Model)
+                        {
+                        <tr>
+                            <td>@customer.TC</td>
+                            <td>@customer.CustomerName</td>
+                            <td>@customer.EmailAddress</td>
+                            <td>@customer.Address</td>
+                            <td>@customer.Phone</td>
+                            <td>@customer.BirthDate</td>
+                            <td class="text-right">
+                                @Html.ActionLink("Güncelle", "Edit", "Customer", new { id = customer.Id }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("Sil", "Delete", "Customer", new { id = customer.Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

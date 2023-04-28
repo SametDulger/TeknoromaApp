@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete;
+@model List<OrderDetail>
+@{
+    ViewData["Title"] = "OrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var orderId = ViewBag.OrderId;
+    var products = ViewBag.Product;
+    var user = ViewBag.User;
+}
+
+
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Ürün Bekleyen Satışlar</h6>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Barkod No</th>
+                    <th>Adet</th>
+                    <th>Teslim Edilecek Personel</th>
+                    <th></th>
+                </tr>
+            </thead>
+     
+            <tbody>
+
+                @foreach (OrderDetail orderDetail in Model)
+                {
+                    <tr>
+                        @foreach (Product product in products)
+                        {
+                            if (product.Id == orderDetail.ProductId)
+                            {
+                                <td>@product.ProductName</td>
+                                <td>@product.BarcodeNumber</td>
+                            }
+                        }
+                        <td>@orderDetail.Quantity</td>
+                        @foreach (AppUser appUser in user)
+                        {
+                            <td>@appUser.UserName</td>
+                        }
+                    <td>
+                        @Html.ActionLink("Ürünleri Teslim Et", "ProductDelivered", "Sales", new { id = orderId }, new { @class = "btn btn-success btn-sm mt-2" })
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

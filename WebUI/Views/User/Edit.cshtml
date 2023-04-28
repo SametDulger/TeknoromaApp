@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete;
+@model AppUser
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div asp-validation-summary="All" class="text-danger">
+            </div>
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Adı</label>
+                    <input asp-for="FirstName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Soyadı</label>
+                    <input asp-for="LastName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input asp-for="UserName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input asp-for="Email" type="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası</label>
+                    <input asp-for="PhoneNumber" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Maaş</label>
+                    <input asp-for="Salary" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Adres</label>
+                    <input asp-for="Address" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" required name="roleName">
+                        <option value="" disabled selected>Kullanıcı yetkisini seçin</option>
+
+                        @foreach (var role in ViewBag.Roles as List<AppRole>)
+                        {
+                            <option value="@role.Name">@role.Name</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+

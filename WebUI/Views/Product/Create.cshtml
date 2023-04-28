@@ -1,0 +1,63 @@
+﻿@using EntityLayer.Concrete;
+@model Product
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Ürün Adı</label>
+                    <input asp-for="ProductName" required type="text" class="form-control" />
+                </div>               
+                <div class="form-group">
+                    <label>Fiyat</label>
+                    <input asp-for="UnitPrice" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Stok Miktarı</label>
+                    <input asp-for="UnıtsInStock" required type="number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Barkod Numarası</label>
+                    <input asp-for="BarcodeNumber" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Ürün Kategorisi</label>
+
+                    <select class="form-control" required name="SubCategoryId">
+                        <option value="" disabled selected>Ürün kategorisi seçin.</option>
+
+                        @foreach (var subCategory in ViewBag.subCategories as List<SubCategory>)
+                        {
+                            <option value="@subCategory.Id">@subCategory.SubCategoryName</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tedarikçi</label>
+
+                    <select class="form-control" required name="SupplierId">
+                        <option value="" disabled selected>Tedarikçi seçin.</option>
+
+                        @foreach (var supplier in ViewBag.suppliers as List<Supplier>)
+                        {
+                            <option value="@supplier.Id">@supplier.CompanyName</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ürün Resmi</label>
+                    <br />
+                    <input asp-for="ImageFile" required accept="image/png,image/jpeg" />
+                </div>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

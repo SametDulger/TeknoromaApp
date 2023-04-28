@@ -1,0 +1,91 @@
+﻿@using EntityLayer.Concrete;
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    img {
+        width: 60px;
+        height: 60px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Ürün Listesi / İşlemleri</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Ürün Görseli</th>
+                            <th>Ürün Adı</th>
+                            <th>Kategori</th>
+                            <th>Stok Miktarı</th>
+                            <th>Fiyat</th>
+                            <th>Barkod No</th>
+                            <th>Tedarikçi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>
+
+                                    @if (product.ImageName != null)
+                                    {
+
+                                        <img src="/img/Product/@product.ImageName">
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/img/Product/resimyok.png">
+
+                                    }
+
+
+
+                                </td>
+
+
+
+                                <td>@product.ProductName</td>
+                                @foreach (SubCategory subCategory in ViewBag.subCategories)
+                                {
+                                    if (product.SubCategoryId == subCategory.Id)
+                                    {
+                                        <td>@subCategory.SubCategoryName</td>
+                                    }
+                                }
+                                <td>@product.UnıtsInStock</td>
+                                <td>@product.UnitPrice</td>
+                                <td>@product.BarcodeNumber</td>
+                                @foreach (Supplier supplier in ViewBag.Suppliers)
+                                {
+                                    if (product.SupplierId == supplier.Id)
+                                    {
+                                        <td>@supplier.CompanyName</td>
+                                    }
+                                }
+                                <td class="text-right">
+                                    @Html.ActionLink("Stok Ekle", "AddStock", "Product", new { id = product.Id }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Güncelle", "Edit", "Product", new { id = product.Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Sil", "Delete", "Product", new { id = product.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

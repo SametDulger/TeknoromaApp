@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete;
+@model SubCategory
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Alt Kategori Adı</label>
+                    <input asp-for="SubCategoryName" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <input asp-for="Description" required type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" required name="CategoryId">
+                        <option value="" disabled selected>Kategori seçin.</option>
+
+                        @foreach (var category in ViewBag.Categories as List<Category>)
+                        {
+                            <option value="@category.Id">@category.CategoryName</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

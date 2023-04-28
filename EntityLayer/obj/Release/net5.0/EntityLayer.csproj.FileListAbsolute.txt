@@ -1,0 +1,12 @@
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\bin\Release\net5.0\EntityLayer.deps.json
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\bin\Release\net5.0\EntityLayer.dll
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\bin\Release\net5.0\EntityLayer.pdb
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.AssemblyInfoInputs.cache
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.AssemblyInfo.cs
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.dll
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\refint\EntityLayer.dll
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\EntityLayer.pdb
+C:\Users\samet\source\repos\TeknoromaProject\EntityLayer\obj\Release\net5.0\ref\EntityLayer.dll

@@ -1,0 +1,143 @@
+﻿@using EntityLayer.Concrete;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var open = ViewBag.OpenIssue;
+    var checking = ViewBag.CheckingIssue;
+    var closed = ViewBag.ClosedIssue;
+}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Oluşturulan Kayıtlar</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kayıt NO</th>
+                            <th>Konu</th>
+                            <th>Oluşturan Personel</th>
+                            <th>Kayıt Durumu</th>
+                            <th>İşlemler</th>
+                    </thead>
+                 
+                    <tbody>
+                        @foreach (Issue openIssue in open)
+                        {
+                            <tr>
+
+                                <td>@openIssue.Id</td>
+                                <td>@openIssue.Subject</td>
+                                <td>@openIssue.AppUser.UserName</td>
+                                <td>@openIssue.IssueStatus</td>
+                                <td>
+                                    @Html.ActionLink("Güncelle", "Edit", "Issue", new { id = openIssue.Id }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Sil", "Delete", "Issue", new { id = openIssue.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<hr />
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">İşlemde Olan Kayıtlar</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kayıt NO</th>
+                            <th>Konu</th>
+                            <th>Oluşturan Personel</th>
+                            <th>Kayıt Durumu</th>
+                            <th>İşlemler</th>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Kayıt NO</th>
+                            <th>Konu</th>
+                            <th>Oluşturan Personel</th>
+                            <th>Kayıt Durumu</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (Issue checkingIssue in checking)
+                        {
+                            <tr>
+
+                                <td>@checkingIssue.Id</td>
+                                <td>@checkingIssue.Subject</td>
+                                <td>@checkingIssue.AppUser.UserName</td>
+                                <td>@checkingIssue.IssueStatus</td>
+                                <td>
+                                    @Html.ActionLink("İncele", "Detail", "Issue", new { id = checkingIssue.Id }, new { @class = "btn btn-warning" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<hr />
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Kapalı Kayıtlar</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kayıt NO</th>
+                            <th>Konu</th>
+                            <th>Oluşturan Personel</th>
+                            <th>Kayıt Durumu</th>
+                            <th>İşlemler</th>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Kayıt NO</th>
+                            <th>Konu</th>
+                            <th>Oluşturan Personel</th>
+                            <th>Kayıt Durumu</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (Issue closedIssue in closed)
+                        {
+                            <tr>
+
+                                <td>@closedIssue.Id</td>
+                                <td>@closedIssue.Subject</td>
+                                <td>@closedIssue.AppUser.UserName</td>
+                                <td>@closedIssue.IssueStatus</td>
+                                <td>
+                                    @Html.ActionLink("İncele", "ClosedDetail", "Issue", new { id = closedIssue.Id }, new { @class = "btn btn-warning" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

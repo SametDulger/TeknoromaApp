@@ -1,0 +1,156 @@
+﻿@using EntityLayer.Concrete;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Oluşturulan Siparişler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Satış Tarihi</th>
+                        <th>TCKN</th>
+                        <th>Müşteri İsmi</th>
+                        <th>Oluşturan Personel</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </thead>
+             
+                <tbody>
+                    @foreach (Order order in ViewBag.Created)
+                    {
+                        <tr>
+                            <td>@order.OrderDate</td>
+                            @foreach (Customer customer in ViewBag.Customer)
+                            {
+                                if (order.CustomerId == customer.Id)
+                                {
+                                    <td>@customer.TC</td>
+                                    <td>@customer.CustomerName</td>
+                                }
+
+                            }
+                            @foreach (AppUser appUser in ViewBag.AppUser)
+                            {
+                                if (order.AppUserId == appUser.Id)
+                                {
+                                    <td>@appUser.UserName</td>
+                                }
+
+                            }
+
+                            <td>
+                                @Html.ActionLink("Detay/İşlem", "Detail", "Order", new { id = order.Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ürün Bekleyen Siparişler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Satış Tarihi</th>
+                        <th>TCKN</th>
+                        <th>Müşteri İsmi</th>
+                        <th>Oluşturan Personel</th>
+                    </tr>
+                </thead>
+              
+                <tbody>
+                    @foreach (Order order in ViewBag.ProductWaiting)
+                    {
+                        <tr>
+                            <td>@order.OrderDate</td>
+                            @foreach (Customer customer in ViewBag.Customer)
+                            {
+                                if (order.CustomerId == customer.Id)
+                                {
+                                    <td>@customer.TC</td>
+                                    <td>@customer.CustomerName</td>
+                                }
+                                
+                            }
+                            @foreach (AppUser appUser in ViewBag.AppUser)
+                            {
+                                if (order.AppUserId == appUser.Id)
+                                {
+                                    <td>@appUser.UserName</td>
+                                }
+                                
+                            }
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Tamamlanan Siparişler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Satış Tarihi</th>
+                        <th>TCKN</th>
+                        <th>Müşteri İsmi</th>
+                        <th>Oluşturan Personel</th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+                    @foreach (Order order in ViewBag.Completed)
+                    {
+                        <tr>
+                            <td>@order.OrderDate</td>
+                            @foreach (Customer customer in ViewBag.Customer)
+                            {
+                                if (order.CustomerId == customer.Id)
+                                {
+                                    <td>@customer.TC</td>
+                                    <td>@customer.CustomerName</td>
+                                }
+                                
+                            }
+                            @foreach (AppUser appUser in ViewBag.AppUser)
+                            {
+                                if (order.AppUserId == appUser.Id)
+                                {
+                                    <td>@appUser.UserName</td>
+                                }
+                                
+                            }
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

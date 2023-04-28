@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete;
+@model List<Order>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ürün Bekleyen Satışlar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Satış Tarihi</th>
+                        <th>TCKN</th>
+                        <th>Müşteri İsmi</th>
+                        <th>Teslim Edilecek Kasa</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (Order order in Model)
+                    {
+                        <tr>
+                            <td>@order.OrderDate</td>
+                            @foreach (Customer customer in ViewBag.Customer)
+                            {
+                                if (order.CustomerId == customer.Id)
+                                {
+                                    <td>@customer.TC</td>
+                                    <td>@customer.CustomerName</td>
+                                }
+
+                            }
+                            <td>@order.CaseNo</td>
+                            <td>
+                                @Html.ActionLink("Ürünleri/Detayları Gör", "OrderDetail", "Sales", new { id = order.Id }, new { @class = "btn btn-success btn-sm mt-2" })
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
